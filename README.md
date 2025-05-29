@@ -28,15 +28,18 @@ O objetivo é fornecer uma API simples para um e-commerce de moda feminina, com 
 
 No terminal do visual studio:
 
+```
 git clone https://github.com/seu-usuario/api-moda-feminina.git
 cd api-moda-feminina
+```
 
 ### 2. Instale as dependências
-
+```
 npm install
-<br>
+
 node index.js
-<br>
+
+```
 
 ### A API estará disponível em: http://localhost:3000/produtos
 
