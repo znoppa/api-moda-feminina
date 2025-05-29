@@ -61,3 +61,21 @@ json <br>
   ...
 ]
 ```
+
+### ➕ POST /produtos
+Adiciona um novo produto ao array.
+
+Corpo da requisição (application/json):
+json <br>
+```
+{
+  "id": 13,
+  "nome": "Exemplo Produto",
+  "categoria": "Roupas",
+  "preco": 99.90,
+  "imagem": "https://exemplo.com/imagem.jpg"
+}
+```
+
+Exemplo de resposta:
+
