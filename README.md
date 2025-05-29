@@ -39,3 +39,25 @@ node index.js
 <br>
 
 ### A API estará disponível em: http://localhost:3000/produtos
+
+---
+
+## 📄 Endpoints da API
+### 🔍 GET /produtos
+Retorna todos os produtos cadastrados na API.
+
+Exemplo de resposta:
+
+json <br>
+```
+[
+  {
+    "id": 1,
+    "nome": "Vestido Floral",
+    "categoria": "Roupas",
+    "preco": 120.00,
+    "imagem": "URL da imagem"
+  },
+  ...
+]
+```
