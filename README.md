@@ -48,7 +48,6 @@ Retorna todos os produtos cadastrados na API.
 
 Exemplo de resposta:
 
-json <br>
 ```
 [
   {
@@ -66,7 +65,7 @@ json <br>
 Adiciona um novo produto ao array.
 
 Corpo da requisição (application/json):
-json <br>
+
 ```
 {
   "id": 13,
@@ -79,3 +78,25 @@ json <br>
 
 Exemplo de resposta:
 
+```
+{
+  "id": 13,
+  "nome": "Exemplo Produto",
+  "categoria": "Roupas",
+  "preco": 99.90,
+  "imagem": "https://exemplo.com/imagem.jpg"
+}
+```
+
+## 🌐 Como Integrar com Front-End
+Você pode consumir esta API facilmente em seu front-end com fetch():
+
+```
+fetch('http://localhost:3000/produtos')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+```
+
+## 📚 Créditos Acadêmicos
+Este projeto foi desenvolvido como parte da disciplina Programação Web 3, do curso Técnico em Desenvolvimento de Sistemas, sob orientação dos professores Fátima e Cláudio.
