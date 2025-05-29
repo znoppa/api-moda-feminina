@@ -34,7 +34,8 @@ cd api-moda-feminina
 ### 2. Instale as dependências
 
 npm install
-
+<br>
 node index.js
+<br>
 
 ### A API estará disponível em: http://localhost:3000/produtos
