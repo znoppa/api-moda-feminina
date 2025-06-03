@@ -1,36 +1,37 @@
-async function carregarProdutos() {
-    try {
-      const resposta = await fetch('http://localhost:3000/produtos');
-      const dados = await resposta.json();
-  
-      const container = document.getElementById('produtos');
-      container.innerHTML = '';
-  
-      dados.forEach(produto => {
-        const col = document.createElement('div');
-        col.className = 'col-lg-3 col-md-4 col-sm-6';
-  
-        col.innerHTML = `
-          <div class="card h-100">
+document.addEventListener("DOMContentLoaded", () => {
+  const produtosContainer = document.getElementById("produtos");
+
+  fetch("http://localhost:3000/produtos")
+    .then(res => res.json())
+    .then(produtos => {
+      if (produtos.length === 0) {
+        produtosContainer.innerHTML = "<p class='text-center'>Nenhum produto encontrado.</p>";
+        return;
+      }
+
+      // Limpa o carregando
+      produtosContainer.innerHTML = "";
+
+      produtos.forEach(produto => {
+        const card = document.createElement("div");
+        card.className = "col-12 col-sm-6 col-md-4 col-lg-3";
+
+        card.innerHTML = `
+          <div class="card h-100 shadow-sm">
             <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
-            <div class="card-body d-flex flex-column justify-content-between">
+            <div class="card-body">
               <h5 class="card-title">${produto.nome}</h5>
-              <p class="card-text">
-                <strong>Categoria:</strong> ${produto.categoria}<br>
-                <strong>Preço:</strong> R$ ${produto.preco.toFixed(2)}
-              </p>
-              <a href="#" class="btn-comprar mt-auto">Comprar</a>
+              <p class="card-text">${produto.categoria}</p>
+              <p class="fw-bold text-primary">R$ ${produto.preco.toFixed(2)}</p>
             </div>
           </div>
         `;
-        container.appendChild(col);
+
+        produtosContainer.appendChild(card);
       });
-  
-    } catch (erro) {
-      document.getElementById('produtos').innerHTML = '<p class="text-danger text-center">Erro ao carregar produtos.</p>';
-      console.error(erro);
-    }
-  }
-  
-  carregarProdutos();
-  
+    })
+    .catch(err => {
+      console.error("Erro ao carregar produtos:", err);
+      produtosContainer.innerHTML = "<p class='text-danger'>Erro ao carregar produtos.</p>";
+    });
+});
